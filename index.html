@@ -80,13 +80,21 @@
       background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
       border-radius:var(--radius);
       padding:28px;
-      transition:var(--transition);
+      transition:transform .4s ease, box-shadow .4s ease, background .6s ease, color .4s ease;
     }
     .card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 20px 40px rgba(0,0,0,.4)
+      transform:translateY(-10px) scale(1.01);
+      box-shadow:0 25px 50px rgba(0,0,0,.5);
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      color:white
     }
-    .card i{font-size:32px;color:var(--blue);margin-bottom:16px}
+    .card i{
+      font-size:32px;
+      color:var(--blue);
+      margin-bottom:16px;
+      transition:color .4s ease
+    }
+    .card:hover i{color:white}
 
     /* ================= PORTFOLIO ================= */
     .portfolio-item{
@@ -108,10 +116,15 @@
     .social a:hover{color:white}
 
     /* ================= CAROUSEL ================= */
-    .carousel{overflow:hidden}
+    .carousel{
+      overflow:hidden;
+      position:relative
+    }
     .carousel-track{
-      display:flex;gap:40px;
-      animation:scroll 20s linear infinite
+      display:flex;
+      gap:40px;
+      width:max-content;
+      animation:scroll 35s linear infinite
     }
     .carousel div{
       min-width:160px;height:60px;
@@ -121,7 +134,9 @@
       color:var(--muted)
     }
     @keyframes scroll{
-      from{transform:translateX(0)}
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-100%)}
+    }
       to{transform:translateX(-50%)}
     }
 
@@ -234,4 +249,4 @@
 </footer><script>
   // Mobile menu placeholder
 </script></body>
-    </html>
+      </html>
