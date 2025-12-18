@@ -257,6 +257,84 @@
       font-size:17px !important;
     }
     .social a:hover{color:white}
+/* ================= CONTACT FORM ================= */
+
+form{
+  max-width:520px;
+  margin:60px auto;
+  padding:36px;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  box-shadow:0 25px 50px rgba(0,0,0,.45);
+}
+
+form label{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:14px;
+  color:#9ca3af;
+}
+
+form input,
+form textarea{
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0b0f1a;
+  color:#e5e7eb;
+  font-family:'Poppins',sans-serif;
+  outline:none;
+  transition:.35s ease;
+}
+
+form textarea{
+  min-height:140px;
+  resize:none;
+}
+
+form input::placeholder,
+form textarea::placeholder{
+  color:#6b7280;
+}
+
+form input:focus,
+form textarea:focus{
+  border-color:#7c3aed;
+  box-shadow:0 0 0 3px rgba(124,58,237,.25);
+}
+form button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#3b82f6,#7c3aed);
+  color:white;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  transition:.4s ease;
+}
+
+form button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(124,58,237,.45);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+  form{
+    padding:26px;
+  }
+}
 
     /* ================= FOOTER ================= */
     footer{background:#070a14;padding:40px 20px}
@@ -395,15 +473,15 @@
 >
   <label>
     email:
-    <input type="email" name="email">
+    <input type="email" name="email"required>
   </label>
  <label>
     name
-    <input type="email" name="email">
+    <input type="email" name="name" required>
   </label>
   <label>
     message:
-    <textarea placeholder="type your message..." name="message"></textarea>
+    <textarea placeholder="type your message..." name="message" required></textarea>
   </label>
   <!-- your other form fields go here -->
   <button type="submit">Send</button>
