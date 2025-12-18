@@ -90,6 +90,34 @@
     .btn:hover{
       color:#0b0f1a;
     }
+.c-btn{
+      position:relative;
+      overflow:hidden;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 26px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      font-weight:500;
+      color:white;
+      isolation:isolate;
+    }
+    .c-btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:white;
+      transform:translateX(-100%);
+      transition:transform .45s ease;
+      z-index:-1;
+    }
+    .c-btn:hover::before{
+      transform:translateX(0);
+    }
+    .c-btn:hover{
+      color:#0b0f1a;
+    }
 
     .menu-btn{
       display:none;
@@ -338,8 +366,6 @@ form button::before{
   transition:transform .45s ease;
   z-index:-1;
 }
-
-/* عند hover */
 form button:hover::before{
   transform:translateX(0);
 }
@@ -376,6 +402,7 @@ form button:hover{
       .hero{grid-template-columns:1fr;text-align:center}
     }
     @media(max-width:768px){
+      .contact
       .nav-links{display:none}
       .menu-btn{display:block}
     }
@@ -389,7 +416,7 @@ form button:hover{
       <a href="#team">Team</a>
       <a href="#templates">Templates</a>
     </nav>
-    <a href="#contact" class="btn">Contact</a>
+    <a href="#contact" class="c-btn">Contact</a>
     <i class="fas fa-bars menu-btn" id="menuBtn"></i>
   </div>
 </header><div class="mobile-menu" id="mobileMenu">
