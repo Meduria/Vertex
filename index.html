@@ -1,195 +1,228 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vertex | Marketing Agency</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vertex | Markting Agency</title>   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  <style>
+    :root{
+      --babyblue:#00d3ff;
+      --blue:#0482ff;
+      --bg:#0b0f1a;
+      --card:#050d4b;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --radius:18px;
+      --t:.35s ease;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:radial-gradient(circle at top,var(--blue),transparent 45%),
+                 radial-gradient(circle at bottom,var(--babyblue),transparent 45%),
+                 var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
 
-<style>
-/* ================= VARIABLES ================= */
-:root{
-  --blue:#0482ff;
-  --babyblue:#00d3ff;
-  --bg:#0b0f1a;
-  --card:#050d4b;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --radius:18px;
-  --t:.45s ease;
+    a{text-decoration:none;color:inherit}
+
+    /* ================= NAVBAR ================= */
+    header{
+      position:fixed;
+      top:0;left:0;width:100%;z-index:1000;
+      background:rgba(11,15,26,.9);
+      backdrop-filter:blur(14px);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      padding:16px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+    .logo span{color:var(--blue)}
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+    }
+    .nav-links a{
+      color:var(--muted);
+      transition:var(--t);
+    }
+    .nav-links a:hover{color:white}
+
+    .btn{
+      position:relative;
+      overflow:hidden;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 26px;
+      border-radius:999px;
+      background:linear-gradient(150deg,var(--blue),var(--card));
+      font-weight:500;
+      color:white;
+      isolation:isolate;
+    }
+    .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:white;
+      transform:translateX(-100%);
+      transition:transform .45s ease;
+      z-index:-1;
+    }
+    .btn:hover::before{
+      transform:translateX(0);
+    }
+    .btn:hover{
+      color:#0b0f1a;
+    }
+
+    .menu-btn{
+      display:none;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu{
+      position:fixed;
+      inset:0;
+      background:rgba(11,15,26,.97);
+      backdrop-filter:blur(10px);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:28px;
+      transform:translateY(-100%);
+      transition:.45s ease;
+      z-index:999;
+    }
+    .mobile-menu.active{transform:translateY(0)}
+    .mobile-menu a{font-size:22px}
+
+    /* ================= HERO ================= */
+    .hero{
+      min-height:100vh;
+      max-width:1200px;
+      margin:auto;
+      padding:140px 20px 80px;
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .hero h1{font-size:50px;line-height:1.2}
+    .hero h1 span{color:var(--blue)}
+    .hero p{color:var(--muted);margin:24px 0}
+
+    .hero-visual{
+  position: relative;
+  height: 360px;
+  border-radius: var(--radius);
+  /*background: linear-gradient(
+    135deg,
+    rgba(59,130,246,.3),
+    rgba(124,58,237,.3)
+  );*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
 
-/* ================= RESET ================= */
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Poppins',sans-serif;
-  background:
-    radial-gradient(circle at top,var(--blue),transparent 45%),
-    radial-gradient(circle at bottom,var(--babyblue),transparent 45%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.7;
-  overflow-x:hidden;
-}
-a{text-decoration:none;color:inherit}
-
-/* ================= NAV ================= */
-header{
-  position:fixed;
-  width:100%;
-  z-index:1000;
-  background:rgba(11,15,26,.9);
-  backdrop-filter:blur(14px);
-}
-.nav{
-  max-width:1200px;
-  margin:auto;
-  padding:16px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{font-size:22px;font-weight:700}
-.logo span{color:var(--blue)}
-.nav-links{display:flex;gap:28px}
-.nav-links a{color:var(--muted);transition:var(--t)}
-.nav-links a:hover{color:white}
-.menu-btn{display:none;font-size:22px;cursor:pointer}
-
-/* ================= BUTTONS (ORIGINAL + ENHANCED) ================= */
-.btn{
-  position:relative;
-  overflow:hidden;
-  padding:12px 28px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--blue),var(--card));
-  color:white;
-  font-weight:500;
-  transition:transform .3s ease, box-shadow .3s ease;
-  isolation:isolate;
-}
-
-.btn::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    120deg,
-    transparent 20%,
-    rgba(255,255,255,.35),
-    transparent 80%
-  );
-  transform:translateX(-120%);
-  transition:transform .6s ease;
-}
-
-.btn:hover::after{
-  transform:translateX(120%);
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 18px 45px rgba(0,0,0,.55);
-}
-
-.btn:active{
-  transform:scale(.96);
-}
-
-/* ================= MOBILE MENU ================= */
-.mobile-menu{
-  position:fixed;
-  inset:0;
-  background:rgba(11,15,26,.97);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:30px;
-  transform:translateY(-100%);
-  transition:.45s ease;
-  z-index:999;
-}
-.mobile-menu.active{transform:translateY(0)}
-.mobile-menu a{font-size:22px}
-
-/* ================= HERO ================= */
-.hero{
-  min-height:100vh;
-  max-width:1200px;
-  margin:auto;
-  padding:140px 20px 80px;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-.hero h1{font-size:52px;line-height:1.2}
-.hero h1 span{color:var(--blue)}
-.hero p{margin:24px 0;color:white}
-
-.hero-visual{
-  position:relative;
-  height:380px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
 .hero-visual img{
-  height:360px;
-  transition:.2s ease-out;
-  filter:drop-shadow(0 25px 60px rgba(0,0,0,.7));
+  position: absolute;
+  bottom:2px;      
+  height: 350px;  
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
+  blend-mode:multiply;
+  
 }
+    /* ================= SECTIONS ================= */
+    section{
+      max-width:1200px;
+      margin:auto;
+      padding:100px 20px;
+    }
+    section h2{font-size:36px;margin-bottom:12px}
+    section h2 span{color:var(--blue)}
+    .section-desc{color:var(--muted);margin-bottom:50px}
 
-/* ================= SECTIONS ================= */
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:100px 20px;
-}
-section h2{font-size:38px}
-section h2 span{color:var(--blue)}
-.section-desc{color:var(--muted);margin:12px 0 50px}
+    /* ================= CARDS ================= */
+    .grid{display:grid;gap:28px}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 
-/* ================= GRID & CARDS ================= */
-.grid{display:grid;gap:28px}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      border-radius:var(--radius);
+      padding:32px;
+      transition:transform .4s ease, box-shadow .4s ease, background .6s ease, color .4s ease;
+    }
+    .card:hover{
+      transform:translateY(-12px);
+      box-shadow:0 30px 60px rgba(0,0,0,.55);
+      background:linear-gradient(135deg,var(--babyblue),var(--blue));
+      color:white;
+    }
+    .card i{
+      margin-top:10px;
+      font-size:35px;
+      color:var(--blue);
+      margin-bottom:18px;
+      transition:.4s ease;
+    }
+    .card:hover i{color:white}
+.card a{
+      margin-top:15px !important;
+      font-size:25px  !important;
+      color:var(--babyblue);
+      margin-bottom:18px;
+      transition:.4s ease;
+    }
+    .card:hover a{color:white}
+    /* ================= CAROUSEL ================= */
+    .carousel{overflow:hidden;position:relative}
+    .carousel-track{
+      display:flex;
+      width:max-content;
+      gap:50px;
+      animation:scroll 35s linear infinite;
+    }
+    .carousel-item{
+      min-width:180px;
+      height:70px;
+      border-radius:14px;
+      background:rgba(255,255,255,.05);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+    }
+    @keyframes scroll{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
 
-.card{
-  position:relative;
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-  padding:32px;
-  border-radius:var(--radius);
-  transition:transform .45s ease, box-shadow .45s ease;
-  overflow:hidden;
-}
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,var(--babyblue),var(--blue));
-  opacity:0;
-  transition:.5s ease;
-  z-index:-1;
-}
-.card:hover::after{opacity:1}
-.card:hover{
-  transform:translateY(-15px) scale(1.03);
-  box-shadow:0 35px 70px rgba(0,0,0,.7);
-  color:white;
-   background:linear-gradient(135deg,var(--babyblue),var(--blue));
-}
-.card i{
-  font-size:36px;
-  margin-bottom:18px;
-  color:var(--blue);
-  transition:.4s ease;
-}
-.card:hover i{color:white}
- /* ================= PORTFOLIO ================= */
+    /* ================= PORTFOLIO ================= */
     .portfolio-item{
       height:500px;
       border-radius:var(--radius);
@@ -200,332 +233,290 @@ section h2 span{color:var(--blue)}
       color:var(--muted);
     }
 
-/* ================= TEAM (FULL + ANIMATED) ================= */
-.team-card{text-align:center}
-.avatar{
-  width:100px;height:100px;
+    /* ================= TEAM ================= */
+    .team-card{text-align:center}
+    .avatar{
+      width:100px;height:100px;
+      border-radius:50%;
+      margin:0 auto 16px;
+      background:linear-gradient(135deg,var(--babyblue),var(--blue));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
   border-radius:50%;
-  margin:0 auto 16px;
-  background:linear-gradient(135deg,var(--babyblue),var(--blue));
-  overflow:hidden;
-}
-.avatar img{width:100%;height:100%;object-fit:cover}
-.social a{
-  margin:0 6px;
-  color:var(--muted);
-  transition:.3s ease;
-}
-.social a:hover{color:white}
-
+    }
+    .social a{
+      margin:0 6px;
+      color:var(--muted);
+      transition:.3s ease;
+      font-size:17px !important;
+    }
+    .social a:hover{color:white}
 /* ================= FORM ================= */
+
 form{
   max-width:520px;
   margin:60px auto;
   padding:36px;
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
   border-radius:18px;
   display:flex;
   flex-direction:column;
   gap:22px;
+  box-shadow:0 25px 50px rgba(0,0,0,.45);
 }
-input,textarea{
-  padding:14px;
+
+form label{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:14px;
+  color:#9ca3af;
+}
+
+form input,
+form textarea{
+  padding:14px 16px;
   border-radius:14px;
-  border:none;
+  border:1px solid rgba(255,255,255,.08);
+  background:#f0f8ff;
+  color:#00000;
+  font-family:'Poppins',sans-serif;
   outline:none;
-  font-family:'Poppins';
-}
-textarea{resize:none;height:140px}
-
-/* ================= FOOTER ================= */
-footer{
-  background:#070a14;
-  padding:40px 20px;
-}
-.footer-content{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
+  transition:.35s ease;
 }
 
-/* ================= SCROLL ANIMATIONS ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(70px);
-  transition:1s ease;
-}
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-.zoom{
-  opacity:0;
-  transform:scale(.85);
-  transition:.9s ease;
-}
-.zoom.active{
-  opacity:1;
-  transform:scale(1);
+form textarea{
+  min-height:140px;
+  resize:none;
 }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;text-align:center}
+form input::placeholder,
+form textarea::placeholder{
+  color:#6b7280;
 }
-@media(max-width:768px){
-  .nav-links{display:none}
-  .menu-btn{display:block}
+
+form input:focus,
+form textarea:focus{
+  border-color:#7c3aed;
+  box-shadow:0 0 0 3px rgba(124,58,237,.25);
 }
-  .template-card{
-  background:linear-gradient(
-    180deg,
-    rgba(255,255,255,.08),
-    rgba(255,255,255,.02)
-  );
-  border-radius:var(--radius);
+form button{
+  position:relative;
   overflow:hidden;
-  transition:.45s ease;
+  isolation:isolate;
+  padding:14px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#3b82f6,#050d4b);
+  color:white;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  transition:.35s ease;
 }
 
-.template-card:hover{
-  transform:translateY(-14px);
-  box-shadow:0 30px 70px rgba(0,0,0,.65);
+form button::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:white;
+  transform:translateX(-100%);
+  transition:transform .45s ease;
+  z-index:-1;
 }
 
-.template-preview{
-  height:180px;
-  background:linear-gradient(135deg,var(--babyblue),var(--blue));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:600;
-  letter-spacing:1px;
+/* عند hover */
+form button:hover::before{
+  transform:translateX(0);
 }
 
-.template-info{
-  padding:22px;
+form button:hover{
+  color:#0b0f1a;
+  box-shadow:0 12px 30px rgba(124,58,237,.45);
+  transform:translateY(-2px);
 }
 
-.template-info p{
-  color:var(--muted);
-  font-size:14px;
-  margin:10px 0 18px;
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+  form{
+    padding:26px;
+  }
 }
 
-.template-actions{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    /* ================= FOOTER ================= */
+    footer{background:#070a14;padding:40px 20px}
+    .footer-content{
+      max-width:1200px;margin:auto;
+      display:flex;flex-wrap:wrap;gap:24px;
+      justify-content:space-between;align-items:center;
+    }
+.footer span {
+  color:babyblue;
 }
-
-.price{
-  font-weight:600;
-  color:var(--babyblue);
-}
-
-.btn.small{
-  padding:8px 20px;
-  font-size:14px;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
+    .footer span:hover{
+      color:white;
+    }
+    
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;text-align:center}
+    }
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .menu-btn{display:block}
+    }
+    .omar{
+      color:#0482ff !important;
+    }
+  </style></head>
+<body><header>
   <div class="nav">
-    <div class="logo">Vertex<span>.</span></div>
+    <a href="#home"><div class="logo">Vertex<span>.</span></div></a>
     <nav class="nav-links">
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
+      <a href="#templates">Templates</a>
     </nav>
     <a href="#contact" class="btn">Contact</a>
     <i class="fas fa-bars menu-btn" id="menuBtn"></i>
   </div>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
+</header><div class="mobile-menu" id="mobileMenu">
   <a href="#services">Services</a>
   <a href="#portfolio">Portfolio</a>
   <a href="#team">Team</a>
+  <a href="#templates">Templates</a>
   <a href="#contact" class="btn">Contact</a>
-</div>
-
-<section class="hero">
-  <div class="reveal">
+</div><section id="home"class="hero">
+  <div>
     <h1>We Build <span>Digital Experiences</span></h1>
-    <p>Transforming ideas into powerful digital products.</p>
-    <a class="btn">Get Started</a>
+    <p>We transform ideas into impactful digital experiences using coding, design, marketing, and technology that drive real results.</p>
+    <a href="" class="btn">Get Started</a>
   </div>
-  <div class="hero-visual reveal">
-    <img src="skitch.png" alt="hero">
+  <div class="hero-visual">
+    <img class="man" src="skitch.png" alt=="hero"> 
   </div>
-</section>
-
-<section id="services">
-  <h2 class="reveal">Our <span>Services</span></h2>
-  <p class="section-desc reveal">All what you need in one place</p>
+</section><section id="services">
+  <h2>Our <span>Services</span></h2>
+  <p class="section-desc">All what you need in one place</p>
   <div class="grid grid-3">
-    <div class="card zoom"><i class="fa-solid fa-pen-nib"></i><h3>Graphic Design</h3></div>
-    <div class="card zoom"><i class="fa-solid fa-code"></i><h3>Web Development</h3></div>
-    <div class="card zoom"><i class="fa-solid fa-bullhorn"></i><h3>Marketing</h3></div>
+    <div class="card"><i class="fa-solid fa-pen-nib"></i><h3>Graphic Design</h3><p>logo designing</p><p>social media</p><p>posters</p></div>
+    <div class="card"><i class="fa-solid fa-code"></i><h3>Web Development</h3><p>personal web</p><p>business web</p><p>landing page</p></div>
+    <div class="card"><i class="fa-solid fa-bullhorn"></i><h3>Marketing</h3><p>Service description</p></div>
   </div>
-</section>
-<section id="portfolio">
+</section><section>
+  <h2>Trusted <span>Partners</span></h2>
+  <p class="section-desc">Be one of our top clients</p>
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-item">Brand Name</div>
+      <div class="carousel-item">Brand Name</div>
+      <div class="carousel-item">Brand Name</div>
+      <div class="carousel-item">Brand Name</div>
+      <div class="carousel-item">Brand Name</div>
+      <div class="carousel-item">Brand Name</div>
+      <div class="carousel-item">Brand Name</div>
+      <div class="carousel-item">Brand Name</div>
+    </div>
+  </div>
+</section><section id="portfolio">
   <h2>Our <span>Work</span></h2>
   <p class="section-desc">some of our work</p>
   <div class="grid grid-3">
     <div class="portfolio-item">Graphic Work</div>
   </div>
-</section>
-<section id="team">
-  <h2 class="reveal">Our <span>Team</span></h2>
+</section><section id="team">
+  <h2>Our <span>Team</span></h2>
+  <p class="section-desc">description</p>
   <div class="grid grid-4">
-    <div class="card team-card zoom">
-      <div class="avatar"><img src="https://avatars.githubusercontent.com/u/171079508?v=4"></div>
+    <div class="card team-card">
+      <div class="avatar"><img src="https://avatars.githubusercontent.com/u/171079508?s=400&u=fbab4bf8335b70e3a7101b25afbc17f30e8b15ea&v=4" alt="logo"></div>
       <h4>Omar Momen</h4>
-      <p>Front-end Developer</p>
+   <p>__________</p>
+      <p>front-end developer</p>
       <div class="social">
         <a href="https://github.com/Meduria"><i class="fab fa-github"></i></a>
-        <a href="https://omar-momen.vercel.app"><i class="fa fa-globe"></i></a>
+        <a href="https://omar-momen.vercel.app/"><i class="fa fa-globe" aria-hidden="true"></i></a>
       </div>
     </div>
-
-    <div class="card team-card zoom">
-      <div class="avatar"><img src="https://framerusercontent.com/images/J80xi2pRYMExQFjTJxlHllmoby4.png"></div>
-      <h4>Abdallah</h4>
-      <p>Branding Designer</p>
+    <div class="card team-card"><div class="avatar"><img src="https://framerusercontent.com/images/J80xi2pRYMExQFjTJxlHllmoby4.png?width=1024&height=1024" alt="logo"></div>
+      <h4>abdallah</h4>
+         <p>__________</p>
+      <p>branding designer</p>
       <div class="social">
-        <a href="https://dribbble.com/abdallahmadbouli04"><i class="fab fa-dribbble"></i></a>
-        <a href="https://www.instagram.com/abdallahbeful/"><i class="fab fa-instagram"></i></a>
-        <a href="https://starkharmony.framer.website/"><i class="fa fa-globe"></i></a>
-      </div>
-    </div>
-
-    <div class="card team-card zoom">
+        <a href=""><i class="fab fa-behance"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+        <a href="https://starkharmony.framer.website/"><i class="fa fa-globe" aria-hidden="true"></i></a>
+      </div></div>
+    <div class="card team-card">
       <div class="avatar"></div>
       <h4>Fares</h4>
-      <p>Graphic Designer</p>
+      <p>Co-founder</p>
+      <p>Graphic designer</p>
       <div class="social">
-        <a><i class="fab fa-behance"></i></a>
-        <a><i class="fab fa-instagram"></i></a>
-        <a><i class="fab fa-linkedin"></i></a>
+        <a href=""><i class="fab fa-behance"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+        <a href=""><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-
-    <div class="card team-card zoom">
-      <div class="avatar"></div>
-      <h4>New Member</h4>
-      <p>Creative Role</p>
-    </div>
+    <div class="card team-card">The same structure</div>
   </div>
-</section>
-<section id="templates">
-  <h2 class="reveal">Templates <span>Store</span></h2>
-  <p class="section-desc reveal">
-    High quality templates crafted for startups & creators
-  </p>
-
+</section><section id="templates">
+  <h2>Templates <span>Store</span></h2>
+  <p class="section-desc"></p>
   <div class="grid grid-3">
-
-    <div class="template-card zoom">
-      <div class="template-preview">
-        <span>Landing Page</span>
-      </div>
-      <div class="template-info">
-        <h3>Startup Launch</h3>
-        <p>Modern landing page for SaaS & startups</p>
-        <div class="template-actions">
-          <span class="price">$19</span>
-          <a class="btn small">Preview</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="template-card zoom">
-      <div class="template-preview">
-        <span>Portfolio</span>
-      </div>
-      <div class="template-info">
-        <h3>Creative Portfolio</h3>
-        <p>Perfect for designers & developers</p>
-        <div class="template-actions">
-          <span class="price">$15</span>
-          <a class="btn small">Preview</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="template-card zoom">
-      <div class="template-preview">
-        <span>Business</span>
-      </div>
-      <div class="template-info">
-        <h3>Agency Website</h3>
-        <p>Elegant website for agencies & studios</p>
-        <div class="template-actions">
-          <span class="price">$25</span>
-          <a class="btn small">Preview</a>
-        </div>
-      </div>
-    </div>
-
+    <div class="card">Template Name</div>
+    <div class="card">Template Name</div>
+    <div class="card">Template Name</div>
   </div>
 </section>
-
-<section id="contact">
-  <h2 class="reveal">Contact <span>Us</span></h2>
-  <form class="zoom" action="https://formspree.io/f/mjgbvbbr" method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="name" placeholder="Name" required>
-    <textarea name="message" placeholder="Message"></textarea>
-    <button class="btn">Send</button>
-  </form>
-</section>
-
-<footer>
+  <section id="contact">
+     <h2>Contact<span>Us</span></h2>
+<form
+  action="https://formspree.io/f/mjgbvbbr"
+  method="POST"
+>
+  <label>
+    email:
+    <input type="email" name="email"required>
+  </label>
+ <label>
+    name
+    <input type="text" name="name" required>
+  </label>
+  <label>
+    message:
+    <textarea placeholder="type your message..." name="message" required></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+  </section>
+  <footer>
   <div class="footer-content">
-    <p>© Vertex — Created by Omar</p>
+    <p>© Vertex — Created by <a href="https://omar-momen.vercel.app"><span class="omar">Omar</span></a></p>
     <div class="social">
+      <a><i class="fab fa-facebook"></i></a>
       <a><i class="fab fa-instagram"></i></a>
       <a><i class="fab fa-linkedin"></i></a>
+      <a><i class="fab fa-behance"></i></a>
     </div>
   </div>
-</footer>
+</footer><script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-<script>
-/* SCROLL ANIMATIONS */
-const items=document.querySelectorAll('.reveal,.zoom');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('active');
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:.15});
-items.forEach(el=>observer.observe(el));
-
-/* MOBILE MENU */
-const menuBtn=document.getElementById('menuBtn');
-const mobileMenu=document.getElementById('mobileMenu');
-menuBtn.onclick=()=>mobileMenu.classList.toggle('active');
-mobileMenu.onclick=()=>mobileMenu.classList.remove('active');
-
-/* HERO PARALLAX */
-const heroImg=document.querySelector('.hero-visual img');
-window.addEventListener('mousemove',e=>{
-  const x=(window.innerWidth/2-e.clientX)/30;
-  const y=(window.innerHeight/2-e.clientY)/30;
-  heroImg.style.transform=`translate(${x}px,${y}px)`;
-});
-</script>
-
-</body>
+  menuBtn.onclick = () => mobileMenu.classList.toggle('active');
+  mobileMenu.onclick = () => mobileMenu.classList.remove('active');
+</script></body>
 </html>
