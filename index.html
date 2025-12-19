@@ -267,6 +267,58 @@ footer{
   .nav-links{display:none}
   .menu-btn{display:block}
 }
+  .template-card{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02)
+  );
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:.45s ease;
+}
+
+.template-card:hover{
+  transform:translateY(-14px);
+  box-shadow:0 30px 70px rgba(0,0,0,.65);
+}
+
+.template-preview{
+  height:180px;
+  background:linear-gradient(135deg,var(--babyblue),var(--blue));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+.template-info{
+  padding:22px;
+}
+
+.template-info p{
+  color:var(--muted);
+  font-size:14px;
+  margin:10px 0 18px;
+}
+
+.template-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.price{
+  font-weight:600;
+  color:var(--babyblue);
+}
+
+.btn.small{
+  padding:8px 20px;
+  font-size:14px;
+}
+
 </style>
 </head>
 
@@ -354,6 +406,58 @@ footer{
       <h4>New Member</h4>
       <p>Creative Role</p>
     </div>
+  </div>
+</section>
+<section id="templates">
+  <h2 class="reveal">Templates <span>Store</span></h2>
+  <p class="section-desc reveal">
+    High quality templates crafted for startups & creators
+  </p>
+
+  <div class="grid grid-3">
+
+    <div class="template-card zoom">
+      <div class="template-preview">
+        <span>Landing Page</span>
+      </div>
+      <div class="template-info">
+        <h3>Startup Launch</h3>
+        <p>Modern landing page for SaaS & startups</p>
+        <div class="template-actions">
+          <span class="price">$19</span>
+          <a class="btn small">Preview</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="template-card zoom">
+      <div class="template-preview">
+        <span>Portfolio</span>
+      </div>
+      <div class="template-info">
+        <h3>Creative Portfolio</h3>
+        <p>Perfect for designers & developers</p>
+        <div class="template-actions">
+          <span class="price">$15</span>
+          <a class="btn small">Preview</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="template-card zoom">
+      <div class="template-preview">
+        <span>Business</span>
+      </div>
+      <div class="template-info">
+        <h3>Agency Website</h3>
+        <p>Elegant website for agencies & studios</p>
+        <div class="template-actions">
+          <span class="price">$25</span>
+          <a class="btn small">Preview</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
