@@ -62,29 +62,40 @@ header{
 .btn{
   position:relative;
   overflow:hidden;
-  isolation:isolate;
   padding:12px 28px;
   border-radius:999px;
-  background:linear-gradient(150deg,var(--blue),var(--card));
+  background:linear-gradient(135deg,var(--blue),var(--card));
   color:white;
   font-weight:500;
-  transition:var(--t);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-.btn::before{
+
+.btn::after{
   content:"";
   position:absolute;
   inset:0;
-  background:white;
-  transform:translateX(-100%);
-  transition:.45s ease;
-  z-index:-1;
+  background:linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,.35),
+    transparent 80%
+  );
+  transform:translateX(-120%);
+  transition:transform .6s ease;
 }
-.btn:hover::before{transform:translateX(0)}
+
+.btn:hover::after{
+  transform:translateX(120%);
+}
+
 .btn:hover{
-  color:#0b0f1a;
-  box-shadow:0 15px 40px rgba(0,0,0,.6);
+  transform:translateY(-3px);
+  box-shadow:0 18px 45px rgba(0,0,0,.55);
 }
-.btn:active{transform:scale(.95)}
+
+.btn:active{
+  transform:scale(.96);
+}
 
 /* ================= MOBILE MENU ================= */
 .mobile-menu{
